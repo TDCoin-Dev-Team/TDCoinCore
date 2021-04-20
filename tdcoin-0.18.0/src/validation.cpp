@@ -1157,7 +1157,7 @@ CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
     int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
     // Force block reward to zero when right shift is undefined.
     if (halvings > 64)
-        return 0;
+        return 1; // TDCoin, we implementing this to recover "lost forever" coins and keep miners rewarded.
 
     long int TIP = 0;
     if(( nHeight == TIP001 ) || (nHeight == TIP002) ){
