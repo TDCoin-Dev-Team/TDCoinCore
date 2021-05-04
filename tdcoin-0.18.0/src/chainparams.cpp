@@ -23,7 +23,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     txNew.nVersion = 1;
     txNew.vin.resize(1);
     txNew.vout.resize(1);
-    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << std::vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
+    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << << ParseHex("342d31322d31392041797261742056205a616b69722c2063726561746f72206f662054415444696720456e67696e6520616e642054616e676b7961206e65742e");
     txNew.vout[0].nValue = genesisReward;
     txNew.vout[0].scriptPubKey = genesisOutputScript;
 
@@ -51,7 +51,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "4-12-19 Ayrat V Zakir, creator of TATDig Engine and Tangkya net.";
+    const char* pszTimestamp = "";
     const CScript genesisOutputScript = CScript() << ParseHex("04486940951aad21ee9646dd1fc43ec8bf01723cdd95661741034888ffa1f21b837c0a59b9c3b625d66379d35055a389ff3f3d849105ee9da67eb82d13d7cdde67") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
