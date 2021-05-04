@@ -23,7 +23,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
     txNew.nVersion = 1;
     txNew.vin.resize(1);
     txNew.vout.resize(1);
-    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << << ParseHex("342d31322d31392041797261742056205a616b69722c2063726561746f72206f662054415444696720456e67696e6520616e642054616e676b7961206e65742e");
+    txNew.vin[0].scriptSig = CScript() << 486604799 << CScriptNum(4) << ParseHex("342d31322d31392041797261742056205a616b69722c2063726561746f72206f662054415444696720456e67696e6520616e642054616e676b7961206e65742e");
     txNew.vout[0].nValue = genesisReward;
     txNew.vout[0].scriptPubKey = genesisOutputScript;
 
